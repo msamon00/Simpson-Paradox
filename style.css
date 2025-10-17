@@ -6,6 +6,12 @@
   padding: 0;
 }
 
+/* Center everything by default */
+body {
+  background-color: #67aca3;
+  text-align: center;
+}
+
 /* -------------------- Main Layout -------------------- */
 main {
   width: auto;
@@ -20,13 +26,17 @@ header {
 header > h1 {
   max-width: 660px;
   margin: 0 auto;
+  text-align: center;
+  padding: 0 10px;
   font-weight: normal;
 }
 
 /* -------------------- Figure / Image -------------------- */
 .fig-wrapper {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
   padding-top: 10px;
-  border-radius: 0 0 10px 10px;
 }
 
 figure {
@@ -162,4 +172,3 @@ hr {
 #tribute-link:visited {
   color: purple;
 }
-
