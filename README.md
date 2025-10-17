@@ -6,7 +6,7 @@ This educational website explains **Simpson's Paradox** through the lens of logi
 
 - Open the `index.html` file in your web browser locally.  
 - Or view the live website via GitHub Pages at:  
-  `https://<your-username>.github.io/<repository-name>/`
+  `[README.md](https://msamon00.github.io/Simpson-Paradox/)`
 
 ## Features
 
