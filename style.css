@@ -155,7 +155,7 @@ hr {
 /* -------------------- Links -------------------- */
 #tribute-link {
   display: inline-block;
-  margin-top: 15px;
+  margin: 15px auto;
   color: #a38917;
   font-weight: bold;
   text-decoration: none;
@@ -167,4 +167,5 @@ hr {
 
 #tribute-link:visited {
   color: purple;
+
 }
