@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Logical Fallacy of Simpson's Paradox</title>
+      <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  </head>
+  <body>
+      <main id="main">
+        <header>
+          <h1  id="title">A Logical Understanding of Simpson's Paradox</h1>
+        </header>
+          <div id="img-div">
+            <div class="fig-wrapper">
+              <figure>
+                <img src="https://www.kdnuggets.com/wp-content/uploads/arya_simpson_paradox_implications_data_science_1.png" id="image" alt="A visual example of Simpson's Paradox">
+                <figcaption id="img-caption"><i>Seemingly</i> no relation.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="knowledge">
+            <h2 id="tribute-info">The Quantifier Fallacy Behind Simpson's Paradox</h2>
+            <ul id="subheaders">
+              <li>
+                <h3 id="intro">Preface</h3>
+                <p class="top-p">A significant aspect of the job description for data professionals is the analysis and review of datasets to draw significant conclusions. However, an important qualification for these positions—something that separates humans from the machines they create or use to analyze data—is a strong intuition for the real world.</p>
+                <p class="middle-p">Oftentimes, datasets are multivariable expressions that, although thorough, need to be interpreted in a manner that produces a finite-dimensional, real-world solution or conclusion. This is precisely where the need for data professionals comes in and will remain regardless of the sophistication of their tools (assuming said tools do not develop sentience).</p>
+                <p class="middle-p">A specific example of this is in datasets where we see evidence of Simpson's Paradox. An important skill for data professionals to possess when interpreting these types of datasets is the ability to remain skeptical of the data while applying real-world views or interpretations.</p>
+              </li>
+              <li>
+                <h3 id="explain">Logical Operators and Simpson's Paradox</h3>
+                <p>Simpson's Paradox is when conclusions derived from two datasets can disappear or <i>reverse</i> after the aggregation of said sets. Using logic operators, this can be represented by the following: </p>
+                <div class="logic">
+
+                  <h4>1. Definitions</h4>
+                  <p>
+                    Let:
+                    <p><b>A</b> = event of interest (e.g., success)</p>
+                    <p><b>B, C</b> = treatments or conditions</p>
+                    <p><b>G</b> = confounding variable</p>
+                    <p>\( \mathcal{G} = \{\, g \mid g \text{ is a possible value of } G \,\} \)</p>
+                  </p>
+
+                  <hr>
+
+                  <h4>2. Overall probability (discrete subgroups):</h4>
+                    <p class="top-p">Here the subgroups \( \mathcal{G}\) are finite in size. E.g., the set of all <i>discrete</i> ages up to 100:  \( \mathcal{G} = \{ g \in \mathbb{N} \mid g \le 100 \} \).</p>
+                    <div class="equation">
+                      \[P(A \mid B) = \sum_{g \in \mathcal{G}} P(A \mid B \wedge G=g) \cdot P(G=g \mid B)\]
+                    </div>
+
+                    <div class="equation">
+                      \[P(A \mid C) = \sum_{g \in \mathcal{G}} P(A \mid C \wedge G=g) \cdot P(G=g \mid C)\]
+                    </div>
+                  <p style="text-align:left;"><i>(sum over finite subgroups)</i></p>
+
+                  <hr>
+
+                  <h4>3. Overall probability (continuous / infinite subgroups):</h4>
+                    <p class="top-p">Here \( \mathcal{G}\) is infinite in size. E.g., the set of all ages up to 100:  \( \mathcal{G} = \{ g \in \mathbb{R} \mid 0 < g \le 100 \} \).</p>
+                    <div class="equation">
+                      \[P(A \mid B) = \int_{\mathcal{G}} P(A \mid B, G=g) \, dP_{G \mid B}(g)\]
+                    </div>
+
+                    <div class="equation">
+                      \[ P(A \mid C) = \int_{\mathcal{G}} P(A \mid C, G=g) \, dP_{G \mid C}(g)\]
+                    </div>
+                  <p style="text-align:left;"><i>(integral over infinite subgroups)</i></p>
+
+                  <hr>
+
+                  <h4>4. Simpson’s Paradox in Logical Form</h4>
+                  <div class="equation">
+                    \[
+                      \forall g \in \mathcal{G}: P(A \mid B \wedge G=g) > P(A \mid C \wedge G=g) 
+                      \;\;\;\not\Rightarrow\;\;\; 
+                      P(A \mid B) > P(A \mid C)
+                    \]
+                    <p style="text-align:left;"><i>(Local trend does not imply global trend)</i></p>
+                  </div>
+
+                  <hr>
+
+                  <h4>5. Key Insight</h4>
+                  <p>
+                    The paradox arises because the <b>distribution of the confounder G differs between treatments</b>. That is, the pattern or shape of \(G's\) distribution depends on which group you’re in:
+                  </p>
+                  <div class="equation">
+                    \[
+                      P_{G \mid B}(g) \neq P_{G \mid C}(g)
+                    \]
+                    <p style="text-align:left;"><i>(Even infinite datasets are affected)</i></p>
+                  </div>
+
+                  <hr>
+                  
+                  <h4>Summary</h4>
+                  <div class="equation">
+                    <p>Better locally \( \not\Rightarrow \) better universally</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <h3 id="meaning">Why Logic Operators?</h3>
+                <p>Typically, when we discuss Simpson's Paradox, we focus on the <i>reversal</i> aspect of the definition. Simpson's paradox is usually introduced as “a reversal of inequalities when data are aggregated.” In probability notation:</p>
+                <p>
+                \[P(A \mid B, G=g) > P(A \mid C, G=g) \quad \forall g\]
+                </p>
+
+                <p>but</p>
+
+                <p>
+                \[P(A \mid B) < P(A \mid C)\]
+                </p>
+
+                <p>That's quantitative, but when we translate this to logical operators (as seen in 4), we can focus on the <i>quantifier reversal</i>. A task for which logic is particularly well-suited. Logic makes you see that the paradox is really about the difference between:</p>
+
+                <p>
+                \[\forall g \in \mathcal{G}, \; P(A \mid B, G=g) > P(A \mid C, G=g) \quad\]<p><i>(something holds within each subgroup)</i></p>
+                </p>
+
+                <p class="bottom-p">versus</p>
+
+                <p>
+                \[P(A \mid B) > P(A \mid C) \quad \]<p class="top-p"><i>(something holds overall, after summation or integration over all g())</i></p>
+                </p>
+
+                <p class="bottom-p">That's a difference in quantifier scope, not just arithmetic. The paradox arises because aggregation moves the quantifier ("for all g") <i>outside</i> the conditioning. Mathematically, this corresponds to mixing integrals/sums with conditional probabilities — operations that don't commute.</p>
+
+                <p class="bottom-p">It allows generalization to any system with conditional relationships.
+                By expressing Simpson's paradox as a logical pattern: </p>
+                <p>
+                \[(\forall g \in \mathcal{G}) \, \phi(g) \;\not\Rightarrow\; \phi(\text{aggregate})\]
+                </p>
+
+                <p>you can generalize beyond the statistical analysis. Ethically, this teaches us that although each outcome is beneficial, the collective may be harmful. In terms of decision theory, an event being locally optimal does not necessarily imply that it is globally optimal. Most notably, in machine learning, we can observe that models may perform well on specific subgroups but perform worse overall.</p>
+
+                <p class="bottom-p">This brings us to the answer to the question of “why logic operators?” I chose this method of presentation for the paradox because it exposes the universality of it: it’s a manifestation of <i>non-commutativity between local and global reasoning</i>. In logic, you can test whether a certain pattern of reasoning is valid independent of the data values. It tells you the paradox is <b>epistemic</b>, not purely statistical — it's about how we combine partial truths.</p>
+              </li>
+            </ul>  
+          </div>
+        <p>Click <a id="tribute-link" href="https://en.wikipedia.org/wiki/Simpson%27s_paradox" target="_blank" rel="noopener noreferrer">here</a> for more information regarding Simpson's Paradox.</p>
+      </main>
+    <footer>
+      
+    </footer>
+  </body>
+</html>

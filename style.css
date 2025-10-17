@@ -1,0 +1,170 @@
+/* -------------------- Global Styles -------------------- */
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center everything by default */
+body {
+  background-color: #67aca3;
+  text-align: center;
+}
+
+/* -------------------- Main Layout -------------------- */
+main {
+  width: auto;
+}
+
+/* -------------------- Header -------------------- */
+header {
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 0;
+}
+
+header > h1 {
+  max-width: 660px;
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+/* -------------------- Figure / Image -------------------- */
+.fig-wrapper {
+  padding-top: 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+figure {
+  background-color: color-mix(in srgb, white 65%, transparent);
+  border-radius: 10px 10px 0 0;
+  margin: 10px auto 0 auto;
+  padding: 22px 10px 0 10px;
+  width: 700px;
+  max-width: 700px;
+}
+
+figcaption, i {
+  background-color: transparent;
+}
+
+img {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-right: 18px;
+  background-color: white;
+  display: block;
+  margin: 0 auto;
+}
+
+/* -------------------- Knowledge Section -------------------- */
+.knowledge {
+  background-color: color-mix(in srgb, white 65%, transparent);
+  border-radius: 0 0 10px 10px;
+  margin: 0 auto;
+  padding: 15px;
+  width: 700px;
+  max-width: 700px;
+  text-align: left;
+}
+
+/* Ensure all children inside knowledge are left-aligned except header of section */
+.knowledge *:not(#tribute-info) {
+  text-align: left;
+}
+
+/* Centered horizontal rule inside knowledge */
+.knowledge hr {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 1.2em 0;
+  border: none;
+  border-top: 2px solid #444;
+  box-sizing: border-box;
+}
+
+/* Center tribute info */
+#tribute-info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid black;
+  margin: 10px 0;
+}
+
+/* Paragraph spacing */
+.top-p {
+  margin-bottom: 10px;
+}
+
+.middle-p{
+  margin: 10px auto;
+}
+
+.bottom-p {
+  margin-top: 10px;
+}
+
+/* Headers inside knowledge */
+.knowledge > h2,
+.knowledge h3 {
+  font-weight: normal;
+}
+
+/* H3 color inside knowledge */
+.knowledge h3 {
+  color: #a38917;
+}
+
+/* -------------------- Lists in Knowledge -------------------- */
+.knowledge ul {
+  padding-left: 40px;
+  margin: 0;
+}
+
+/* -------------------- Logic / Equations -------------------- */
+.logic, .equation {
+  margin: 10px auto;
+  width: 100%;
+  max-width: 660px;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  font-weight: normal;
+}
+
+/* Remove padding from equations for better alignment */
+.equation {
+  padding: 0;
+}
+
+/* Optional: center captions under equations */
+.equation p {
+  text-align: center;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* -------------------- Links -------------------- */
+#tribute-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #a38917;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#tribute-link:hover {
+  text-decoration: underline;
+}
+
+#tribute-link:visited {
+  color: purple;
+}
