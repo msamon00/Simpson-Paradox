@@ -6,154 +6,114 @@
   padding: 0;
 }
 
-/* Center everything by default */
+/* Background and layout */
 body {
-  background-color: #67aca3;
+  background-color: #67aca3; /* teal background */
   text-align: center;
-}
-
-/* -------------------- Main Layout -------------------- */
-main {
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
 }
 
 /* -------------------- Header -------------------- */
 header {
-  border-radius: 10px 10px 0 0;
-  margin-bottom: 0;
+  background: transparent;
+  margin-bottom: 20px; /* space between title and white box */
 }
 
 header > h1 {
-  max-width: 660px;
-  margin: 0 auto;
   text-align: center;
-  padding: 0 10px;
   font-weight: normal;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* -------------------- Figure / Image -------------------- */
-.fig-wrapper {
-  width: 90%;
+/* -------------------- Main (white content box) -------------------- */
+main {
+  width: 85%;                /* narrower for more teal margin */
   max-width: 800px;
-  margin: 0 auto;
-  padding-top: 10px;
+  background-color: color-mix(in srgb, white 65%, transparent);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  padding: 30px 25px;        /* increased padding inside the box */
+  text-align: left;
+}
+
+/* -------------------- Image Section -------------------- */
+#img-div {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 figure {
-  background-color: color-mix(in srgb, white 65%, transparent);
-  border-radius: 10px 10px 0 0;
-  margin: 10px auto 0 auto;
-  padding: 22px 10px 0 10px;
-  width: 90%;
-  max-width: 700px;
-}
-
-figcaption, i {
-  background-color: transparent;
+  background: transparent;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
 }
 
 img {
-  width: 500px;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   border: 2px solid black;
   border-radius: 10px;
-  padding-right: 18px;
   background-color: white;
   display: block;
   margin: 0 auto;
 }
 
+figcaption {
+  margin-top: 8px;
+  font-style: italic;
+  text-align: center;
+}
+
 /* -------------------- Knowledge Section -------------------- */
 .knowledge {
-  background-color: color-mix(in srgb, white 65%, transparent);
-  border-radius: 0 0 10px 10px;
-  margin: 0 auto;
-  padding: 15px;
-  width: 70%;
-  max-width: 700px;
   text-align: left;
 }
 
-/* Ensure all children inside knowledge are left-aligned except header of section */
-.knowledge *:not(#tribute-info) {
-  text-align: left;
-}
-
-/* Centered horizontal rule inside knowledge */
-.knowledge hr {
-  display: block;
-  width: calc(100% - 30px);
-  margin: 1.2em 0;
-  border: none;
-  border-top: 2px solid #444;
-  box-sizing: border-box;
-}
-
-/* Center tribute info */
 #tribute-info {
   text-align: center;
   margin-bottom: 10px;
 }
 
-hr {
+.knowledge hr {
+  width: 100%;
   border: none;
-  border-top: 1px solid black;
-  margin: 10px 0;
+  border-top: 2px solid #444;
+  margin: 1.2em 0;
 }
 
-/* Paragraph spacing */
-.top-p {
-  margin-bottom: 10px;
-}
-
-.middle-p{
-  margin: 10px auto;
-}
-
-.bottom-p {
-  margin-top: 10px;
-}
-
-/* Headers inside knowledge */
-.knowledge > h2,
 .knowledge h3 {
+  color: #a38917;
   font-weight: normal;
 }
 
-/* H3 color inside knowledge */
-.knowledge h3 {
-  color: #a38917;
-}
-
-/* -------------------- Lists in Knowledge -------------------- */
-.knowledge ul {
-  padding-left: 40px;
-  margin: 0;
-}
+/* Paragraph spacing */
+.top-p { margin-bottom: 10px; }
+.middle-p { margin: 10px 0; }
+.bottom-p { margin-top: 10px; }
 
 /* -------------------- Logic / Equations -------------------- */
 .logic, .equation {
   margin: 10px auto;
-  width: 100%;
-  max-width: 660px;
   background-color: transparent;
   padding: 10px;
   border-radius: 8px;
-  text-align: left;
-  font-weight: normal;
 }
 
-/* Remove padding from equations for better alignment */
-.equation {
-  padding: 0;
-}
-
-/* Optional: center captions under equations */
 .equation p {
   text-align: center;
   margin-top: 5px;
   font-style: italic;
+}
+
+/* -------------------- Lists -------------------- */
+.knowledge ul {
+  padding-left: 25px;  /* space for bullets inside the box */
+  margin-bottom: 10px;
 }
 
 /* -------------------- Links -------------------- */
@@ -165,10 +125,33 @@ hr {
   text-decoration: none;
 }
 
-#tribute-link:hover {
-  text-decoration: underline;
+#tribute-link:hover { text-decoration: underline; }
+#tribute-link:visited { color: purple; }
+
+/* -------------------- Responsive Design -------------------- */
+@media (max-width: 1024px) {
+  main {
+    width: 90%;
+    padding: 25px 20px;
+  }
+
+  header > h1 {
+    font-size: 1.5em;
+    padding: 0 10px;
+  }
 }
 
-#tribute-link:visited {
-  color: purple;
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  main {
+    width: 92%;
+    padding: 25px 15px;
+  }
+
+  header > h1 {
+    font-size: 1.2em;
+  }
 }
