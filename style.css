@@ -141,17 +141,44 @@ figcaption {
   }
 }
 
+/* --- Mobile (phones) --- */
 @media (max-width: 600px) {
   body {
     font-size: 16px;
   }
 
   main {
-    width: 92%;
-    padding: 25px 15px;
+    width: 94%;            /* narrower for teal borders */
+    padding: 20px 12px;    /* slightly less padding */
+  }
+
+  figure, #img-div, .fig-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    border-width: 1.5px;   /* slightly thinner border for small screens */
   }
 
   header > h1 {
     font-size: 1.2em;
+    padding: 0 5px;
+  }
+}
+
+/* --- Small mobile (very narrow phones) --- */
+@media (max-width: 400px) {
+  main {
+    width: 95%;
+    padding: 18px 10px;
+  }
+
+  header > h1 {
+    font-size: 1.1em;
   }
 }
